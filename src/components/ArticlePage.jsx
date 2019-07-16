@@ -1,44 +1,49 @@
 import React, { Component } from "react";
-import axios from "axios";
-// import * as api from "../utils/api";
+import * as api from "../utils/api";
 
 class ArticlePage extends Component {
   state = {
-    article: {}
+    article: {},
+    comments: []
   };
 
   render() {
-    const { article } = this.state;
+    const { article, comments } = this.state;
+    console.log(comments);
     return (
       <div className="main">
         <h2>{article.title}</h2>
         <p>{article.body}</p>
-        <p>{article.votes}</p>
+        <p>votes:{article.votes}</p>
         <p>{article.author}</p>
         <p>{article.created_at}</p>
-        <p>{article.comment_count}</p>
+        <p>comments:{article.comment_count}</p>
+        <div>
+          <ul className="commentsList">
+            {comments.map(comment => {
+              return (
+                <li>
+                  <p>{comment.author}</p>
+                  <p>{comment.created_at}</p>
+                  <p>votes:{comment.votes}</p>
+                  <p>{comment.body}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     );
   }
 
-  // componentDidMount = () => {
-  //   api.getArticleById().then(article => {
-  //     this.setState({ article });
-  //   });
-  // };
-
   componentDidMount = () => {
-    this.fetchArticleById().then(article => {
+    const { article_id } = this.props;
+    api.getArticleById(article_id).then(article => {
       this.setState({ article });
     });
-  };
-
-  fetchArticleById = async () => {
-    const { id } = this.props;
-    const { data } = await axios.get(
-      `https://kp-nc-news.herokuapp.com/api/articles/${id}`
-    );
-    return data.article;
+    api.getComments(article_id).then(comments => {
+      this.setState(comments);
+    });
   };
 }
 

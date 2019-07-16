@@ -3,13 +3,29 @@ import axios from "axios";
 
 const BASE_URL = "https://kp-nc-news.herokuapp.com/api";
 
-export const getArticles = async () => {
-  const { data } = await axios.get(`${BASE_URL}/articles`);
+export const getArticles = async topic => {
+  const { data } = await axios.get(`${BASE_URL}/articles`, {
+    params: {
+      topic
+    }
+  });
   return data.articles;
 };
 
-// export const getArticleById = async () => {
-//   const { id } = this.props;
-//   const { data } = await axios.get(`${BASE_URL}/articles/${id}`);
-//   return data.article;
-// };
+export const getArticleById = async article_id => {
+  const { data } = await axios.get(`${BASE_URL}/articles/${article_id}`);
+  return data.article;
+};
+
+export const getTopics = async () => {
+  const { data } = await axios.get(`${BASE_URL}/topics`);
+
+  return data.topics;
+};
+
+export const getComments = async article_id => {
+  const { data } = await axios.get(
+    `${BASE_URL}/articles/${article_id}/comments`
+  );
+  return data;
+};

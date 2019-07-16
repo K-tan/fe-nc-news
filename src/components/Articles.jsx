@@ -12,7 +12,6 @@ class Articles extends Component {
 
     return (
       <div className="main">
-        <h1>All Articles</h1>
         <ul className="articles">
           {articles.map(article => {
             return <ArticleCard key={article.article_id} article={article} />;
@@ -23,7 +22,17 @@ class Articles extends Component {
   }
 
   componentDidMount = () => {
-    api.getArticles().then(articles => {
+    this.fetchArticles();
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    const newTopic = this.props.topic !== prevProps.topic;
+    if (newTopic) this.fetchArticles();
+  }
+
+  fetchArticles = () => {
+    const { topic } = this.props;
+    api.getArticles(topic).then(articles => {
       this.setState({ articles });
     });
   };
