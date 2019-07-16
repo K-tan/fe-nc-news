@@ -1,26 +1,45 @@
 import React, { Component } from "react";
+import axios from "axios";
+// import * as api from "../utils/api";
 
 class ArticlePage extends Component {
   state = {
-    article: {
-      article_id: 0,
-      title: "",
-      body: "test",
-      votes: 0,
-      topic: "test",
-      author: "test",
-      created_at: "2018-05-30T15:59:13.341Z",
-      comment_count: "0"
-    }
+    article: {}
   };
 
   render() {
+    const { article } = this.state;
     return (
-      <div>
-        <h1>article page</h1>
+      <div className="main">
+        <h2>{article.title}</h2>
+        <p>{article.body}</p>
+        <p>{article.votes}</p>
+        <p>{article.author}</p>
+        <p>{article.created_at}</p>
+        <p>{article.comment_count}</p>
       </div>
     );
   }
+
+  // componentDidMount = () => {
+  //   api.getArticleById().then(article => {
+  //     this.setState({ article });
+  //   });
+  // };
+
+  componentDidMount = () => {
+    this.fetchArticleById().then(article => {
+      this.setState({ article });
+    });
+  };
+
+  fetchArticleById = async () => {
+    const { id } = this.props;
+    const { data } = await axios.get(
+      `https://kp-nc-news.herokuapp.com/api/articles/${id}`
+    );
+    return data.article;
+  };
 }
 
 export default ArticlePage;
