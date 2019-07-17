@@ -34,7 +34,6 @@ export const getComments = async article_id => {
   return data;
 };
 
-//this maybe not the correct syntax check the post and where its going
 export const postComment = async (article_id, username, body) => {
   const newComment = { username, body };
   const { data } = await axios.post(
@@ -42,4 +41,9 @@ export const postComment = async (article_id, username, body) => {
     newComment
   );
   return data.comment;
+};
+
+export const deleteComment = async comment_id => {
+  const { data } = await axios.delete(`${BASE_URL}/comments/${comment_id}`);
+  return data;
 };
