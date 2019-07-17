@@ -4,7 +4,8 @@ import * as api from "../utils/api";
 
 class Articles extends Component {
   state = {
-    articles: []
+    articles: [],
+    sort_by: ""
   };
 
   render() {
@@ -12,6 +13,13 @@ class Articles extends Component {
 
     return (
       <div className="main">
+        <form>
+          <select onChange={this.handleChange} value={this.state.value}>
+            <option value="created_at">date_created</option>
+            <option value="comment_count">comment_count</option>
+            <option value="votes">votes</option>
+          </select>
+        </form>
         <ul className="articles">
           {articles.map(article => {
             return <ArticleCard key={article.article_id} article={article} />;
@@ -27,14 +35,23 @@ class Articles extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const newTopic = this.props.topic !== prevProps.topic;
-    if (newTopic) this.fetchArticles();
+    const newSortby = this.state.sort_by !== prevState.sort_by;
+    if (newTopic || newSortby) this.fetchArticles();
   }
 
   fetchArticles = () => {
     const { topic } = this.props;
-    api.getArticles(topic).then(articles => {
+    const { sort_by } = this.state;
+    api.getArticles(topic, sort_by).then(articles => {
       this.setState({ articles });
     });
+  };
+
+  handleChange = event => {
+    event.preventDefault();
+    const sort_by = event.target.value;
+    this.setState({ sort_by });
+    //bringing in from the app.js
   };
 }
 

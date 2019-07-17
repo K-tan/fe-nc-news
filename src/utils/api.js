@@ -3,10 +3,14 @@ import axios from "axios";
 
 const BASE_URL = "https://kp-nc-news.herokuapp.com/api";
 
-export const getArticles = async topic => {
+//place your sortby and order by in here
+export const getArticles = async (topic, sort_by, order) => {
+  //you will need to put in a sortby and orderby in here
   const { data } = await axios.get(`${BASE_URL}/articles`, {
     params: {
-      topic
+      topic,
+      sort_by,
+      order
     }
   });
   return data.articles;
@@ -28,4 +32,14 @@ export const getComments = async article_id => {
     `${BASE_URL}/articles/${article_id}/comments`
   );
   return data;
+};
+
+//this maybe not the correct syntax check the post and where its going
+export const postComment = async (article_id, username, body) => {
+  const newComment = { username, body };
+  const { data } = await axios.post(
+    `${BASE_URL}/articles/${article_id}/comments`,
+    newComment
+  );
+  return data.comment;
 };

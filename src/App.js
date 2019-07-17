@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Articles from "./components/Articles";
 import ArticlePage from "./components/ArticlePage";
+import PostComment from "./components/PostComment";
 import { Router } from "@reach/router";
 
 import "./App.css";
@@ -24,6 +25,7 @@ class App extends Component {
           <Articles path="/" />
           <Articles path="/topics/:topic" />
           <ArticlePage path="/articles/:article_id" />
+          <PostComment path="/newcomment:/" />
         </Router>
         <Footer />
       </div>

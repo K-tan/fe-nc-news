@@ -9,6 +9,14 @@
     "nav"
     "main"
     "footer";
+
+  letter-spacing: 2px;
+}
+
+ul.articles {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 .heading {
