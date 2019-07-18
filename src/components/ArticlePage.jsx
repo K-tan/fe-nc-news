@@ -34,7 +34,10 @@ class ArticlePage extends Component {
                   <p>{new Date(comment.created_at).toUTCString()}</p>
                   <p>votes:{comment.votes}</p>
                   <p>{comment.body}</p>
-                  <DeleteComment comment_id={comment.comment_id} />
+                  <DeleteComment
+                    comment_id={comment.comment_id}
+                    removeComment={this.removeComment}
+                  />
                 </li>
               );
             })}
@@ -48,6 +51,13 @@ class ArticlePage extends Component {
     this.setState(state => {
       state.article.comment_count++;
       return { comments: [comment, ...state.comments] };
+    });
+  };
+
+  removeComment = () => {
+    this.setState(state => {
+      state.article.comment_count--;
+      return { comments: [...this.state.comments.slice(1)] };
     });
   };
 

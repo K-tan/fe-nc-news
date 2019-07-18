@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import * as api from "../utils/api";
 
 class PostComment extends Component {
-  //below is the current state of the comment with an author and body as empty
-  //?? how to get so it posts to the correct area of the comments.
   state = {
     author: "jessjelly",
     body: ""

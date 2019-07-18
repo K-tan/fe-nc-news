@@ -10,9 +10,10 @@ class Articles extends Component {
 
   render() {
     const { articles } = this.state;
-
+    const { topic } = this.props;
     return (
       <div className="main">
+        <h2>{topic ? `Articles on ${topic}` : `All Articles`}</h2>
         <form>
           <select onChange={this.handleChange} value={this.state.value}>
             <option value="created_at">date_created</option>

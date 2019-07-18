@@ -3,7 +3,7 @@ import * as api from "../utils/api";
 
 class DeleteComment extends Component {
   state = {
-    comment_id: 0
+    author: "jessjelly"
   };
 
   render() {
@@ -19,7 +19,7 @@ class DeleteComment extends Component {
   handleDelete = event => {
     event.preventDefault();
     const { comment_id } = this.props;
-    api.deleteComment(comment_id);
+    api.deleteComment(comment_id).then(this.props.removeComment(comment_id));
   };
 }
 
