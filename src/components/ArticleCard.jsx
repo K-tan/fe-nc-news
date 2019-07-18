@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-import "./ArticleCard.css";
+import "../css/ArticleCard.css";
 import Vote from "./Vote";
 
 const ArticleCard = ({ article, votes }) => {

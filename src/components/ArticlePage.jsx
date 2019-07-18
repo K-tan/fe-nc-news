@@ -3,7 +3,7 @@ import * as api from "../utils/api";
 import PostComment from "./PostComment";
 import DeleteComment from "./DeleteComment";
 import Vote from "./Vote";
-import "./ArticlePage.css";
+import "../css/ArticlePage.css";
 
 class ArticlePage extends Component {
   state = {
