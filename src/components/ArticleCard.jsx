@@ -7,7 +7,11 @@ const ArticleCard = ({ article, votes }) => {
   return (
     <div>
       <li className="article_card">
-        <Vote votes={article.votes} id={article.article_id} />
+        <Vote
+          votes={article.votes}
+          id={article.article_id}
+          section="articles"
+        />
         <h5>title: {article.title}</h5>
         <p>topic: {article.topic}</p>
         {/* <p>votes:{article.votes}</p> */}

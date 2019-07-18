@@ -48,9 +48,10 @@ export const deleteComment = async comment_id => {
   return data;
 };
 
-export const vote = async (article_id, inc_votes) => {
-  const { data } = await axios.patch(`${BASE_URL}/articles/${article_id}`, {
-    inc_votes
+export const vote = async (article_id, inc_votes, section) => {
+  const { data } = await axios.patch(`${BASE_URL}/${section}/${article_id}`, {
+    inc_votes,
+    section
   });
   return data.article;
 };

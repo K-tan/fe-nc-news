@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as api from "../utils/api";
 import PostComment from "./PostComment";
 import DeleteComment from "./DeleteComment";
-
+import Vote from "./Vote";
 class ArticlePage extends Component {
   state = {
     article: {},
@@ -30,9 +30,14 @@ class ArticlePage extends Component {
             {comments.map(comment => {
               return (
                 <li key={comment.comment_id}>
+                  <Vote
+                    votes={comment.votes}
+                    id={comment.comment_id}
+                    section="comments"
+                  />
                   <p>{comment.author}</p>
                   <p>{new Date(comment.created_at).toUTCString()}</p>
-                  <p>votes:{comment.votes}</p>
+                  {/* <p>votes:{comment.votes}</p> */}
                   <p>{comment.body}</p>
                   <DeleteComment
                     comment_id={comment.comment_id}
