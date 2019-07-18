@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
+import "./PostComment.css";
 
 class PostComment extends Component {
   state = {

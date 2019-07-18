@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
+import "./DeleteComment.css";
 
 class DeleteComment extends Component {
   state = {

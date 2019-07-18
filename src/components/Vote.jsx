@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
+import "./Vote.css";
 
 class Vote extends Component {
   //created a vote class which has been sent through to the articleCard

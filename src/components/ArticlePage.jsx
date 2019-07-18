@@ -3,6 +3,8 @@ import * as api from "../utils/api";
 import PostComment from "./PostComment";
 import DeleteComment from "./DeleteComment";
 import Vote from "./Vote";
+import "./ArticlePage.css";
+
 class ArticlePage extends Component {
   state = {
     article: {},
@@ -40,6 +42,7 @@ class ArticlePage extends Component {
                   {/* <p>votes:{comment.votes}</p> */}
                   <p>{comment.body}</p>
                   <DeleteComment
+                    article_id={this.article_id}
                     comment_id={comment.comment_id}
                     removeComment={this.removeComment}
                   />
@@ -59,10 +62,17 @@ class ArticlePage extends Component {
     });
   };
 
-  removeComment = () => {
+  removeComment = comment_id => {
+    console.log(comment_id);
     this.setState(state => {
       state.article.comment_count--;
-      return { comments: [...this.state.comments.slice(1)] };
+      return {
+        comments: [
+          ...this.state.comments.filter(comment => {
+            if (comment.comment_id !== comment_id) return comment;
+          })
+        ]
+      };
     });
   };
 

@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Articles from "./components/Articles";
 import ArticlePage from "./components/ArticlePage";
 import PostComment from "./components/PostComment";
+import Error from "./components/Error";
 import { Router } from "@reach/router";
 
 import "./App.css";
@@ -26,6 +27,7 @@ class App extends Component {
           <Articles path="/topics/:topic" />
           <ArticlePage path="/articles/:article_id" />
           <PostComment path="/newcomment:/" />
+          <Error path="/error" />
         </Router>
         <Footer />
       </div>
