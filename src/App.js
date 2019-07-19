@@ -7,8 +7,7 @@ import ArticlePage from "./components/ArticlePage";
 import PostComment from "./components/PostComment";
 import Error from "./components/Error";
 import { Router } from "@reach/router";
-
-import "./App.css";
+import "./css/App.css";
 import * as api from "./utils/api";
 
 class App extends Component {

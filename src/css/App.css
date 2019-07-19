@@ -3,14 +3,23 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: 2fr 1fr 12fr 1fr;
+  grid-template-rows: 2fr 1fr 10fr 1fr;
   grid-template-areas:
     "heading"
     "nav"
     "main"
     "footer";
-
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  font-family: "Cardo", serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
 }
 
 ul.articles {
@@ -32,7 +41,9 @@ ul.articles {
 .main {
   grid-area: "main";
   border: 1px solid orange;
+  background-color: #202829;
 }
+
 .footer {
   grid-area: "footer";
   border: 1px solid green;

@@ -4,11 +4,7 @@ import "../css/Heading.css";
 const Heading = () => {
   return (
     <div className="heading">
-      {/* <img
-        className="logo"
-        src="https://cdn-images-1.medium.com/max/184/1*LdnSztHVYhhd8K8EqlgCJQ@2x.png"
-      /> */}
-      <h1>NC News</h1>
+      <h1 className="headingTitle">Northcoders News</h1>
     </div>
   );
 };

@@ -14,12 +14,19 @@ class Articles extends Component {
     const { topic } = this.props;
     return (
       <div className="main">
-        <h2>{topic ? `Articles on ${topic}` : `All Articles`}</h2>
+        <h2 className="articleH2">
+          {topic ? `Articles on ${topic}` : `All Articles`}
+        </h2>
         <form>
-          <select onChange={this.handleChange} value={this.state.value}>
-            <option value="created_at">date_created</option>
-            <option value="comment_count">comment_count</option>
-            <option value="votes">votes</option>
+          <select
+            className="select-css"
+            onChange={this.handleChange}
+            value={this.state.value}
+          >
+            <option>SortBy</option>
+            <option value="created_at">Date</option>
+            <option value="comment_count">Comments</option>
+            <option value="votes">Votes</option>
           </select>
         </form>
         <ul className="articles">

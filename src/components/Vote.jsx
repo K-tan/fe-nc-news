@@ -36,6 +36,11 @@ class Vote extends Component {
       voteChange: state.voteChange + increment
     }));
   };
+  componentDidUpdate = (prevProps, prevState) => {
+    if (prevProps.votes !== this.props.votes) {
+      this.setState({ voteChange: 0 });
+    }
+  };
 }
 
 export default Vote;

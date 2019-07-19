@@ -1,4 +1,8 @@
 .article_card {
   border: 1px solid black;
   list-style: none;
+  background-color: #ededed;
+  width: 400px;
+  height: 400px;
+  margin: 10px;
 }

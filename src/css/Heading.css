@@ -1,0 +1,12 @@
+.headingTitle {
+  background-color: #202829;
+  color: white;
+  margin: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  letter-spacing: 5px;
+}
+
+.headingTitle::first-letter {
+  color: #ba1f31;
+}

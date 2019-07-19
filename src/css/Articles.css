@@ -1,0 +1,11 @@
+.articleH2 {
+  color: white;
+}
+
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
+}
