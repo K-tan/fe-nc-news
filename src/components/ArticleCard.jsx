@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "@reach/router";
 import "../css/ArticleCard.css";
 import Vote from "./Vote";
-import avatar from "../img/avatar.svg";
 
-const ArticleCard = ({ article, votes }) => {
+const ArticleCard = ({ article }) => {
   return (
     <div className="article_box">
       <li className="article_card">

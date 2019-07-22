@@ -18,8 +18,9 @@
 }
 
 .readMore {
-  font-style: italic;
   font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .readMore:link {

@@ -4,7 +4,58 @@ ul.commentsList {
 }
 
 li.individualComment {
-  background-color: #ededed;
-  border: 0.5px solid black;
+  border: 2px solid gray;
+  padding: 2.5%;
   margin: 2.5%;
+}
+
+.articlePageBody {
+  padding: 2.5%;
+  margin: auto;
+  text-align: justify;
+}
+
+.justify {
+  text-align: justify;
+  padding: 2.5%;
+}
+
+.commentTag {
+  font-weight: bold;
+}
+
+@media (min-width: 641px) {
+  .assignLeft {
+    text-align: left;
+    padding-left: 5%;
+    padding-bottom: 0%;
+  }
+
+  li.individualComment {
+    background-color: #ededed;
+    border: 0.5px solid black;
+    margin: 2.5%;
+  }
+
+  .articlePageBody {
+    width: 50%;
+    margin: auto;
+    text-align: justify;
+    padding: 0%;
+  }
+
+  .justify {
+    padding-top: 0%;
+  }
+
+  .commentInputTextArea {
+    margin: 0;
+    width: 750px;
+    margin: auto;
+    font-size: 18px;
+  }
+
+  .deleteButton {
+    margin-left: 80%;
+  }
 }

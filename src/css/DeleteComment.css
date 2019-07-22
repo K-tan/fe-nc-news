@@ -1,0 +1,18 @@
+.deleteButton {
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  text-shadow: 1px 1px 3px #202829;
+
+  color: #202829;
+  font-size: 14px;
+  background: #ededed;
+  padding: 6px 15px 6px 15px;
+  text-decoration: none;
+}
+
+.deleteButton:hover {
+  background: #ba1f31;
+  text-decoration: none;
+  color: white;
+}

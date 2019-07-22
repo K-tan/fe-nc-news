@@ -21,7 +21,7 @@ class Vote extends Component {
           onClick={() => this.vote(1)}
           disabled={voteChange === 1}
         >
-          <img width="25" height="25" src={voteUp} />
+          <img width="25" height="25" src={voteUp} alt="voteup" />
         </button>
         <p>votes: {votes + voteChange}</p>
         <button
@@ -29,7 +29,7 @@ class Vote extends Component {
           onClick={() => this.vote(-1)}
           disabled={voteChange === -1}
         >
-          <img width="25" height="25" src={voteDown} />
+          <img width="25" height="25" src={voteDown} alt="votedown" />
         </button>
         {/* <button onClick={() => this.vote(-1)} disabled={voteChange === -1}>
           <img src={voteDown} />

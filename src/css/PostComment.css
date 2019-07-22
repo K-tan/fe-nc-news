@@ -9,3 +9,20 @@
   height: 100px;
   background-color: #ededed;
 }
+
+.postCommentBtn {
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  color: #202829;
+  font-size: 14px;
+  background: #ededed;
+  padding: 6px 15px 6px 15px;
+  text-decoration: none;
+}
+
+.postCommentBtn:hover {
+  background: #ba1f31;
+  color: white;
+  text-decoration: none;
+}

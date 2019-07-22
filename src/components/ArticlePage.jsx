@@ -8,11 +8,12 @@ import "../css/ArticlePage.css";
 class ArticlePage extends Component {
   state = {
     article: {},
-    comments: []
+    comments: [],
+    author: "jessjelly"
   };
 
   render() {
-    const { article, comments } = this.state;
+    const { article, comments, author } = this.state;
 
     return (
       <div className="main">
@@ -36,20 +37,26 @@ class ArticlePage extends Component {
             {comments.map(comment => {
               return (
                 <li className="individualComment" key={comment.comment_id}>
-                  <p>{comment.author}</p>
-                  <p>{new Date(comment.created_at).toUTCString()}</p>
+                  <p className="assignLeft ">posted by: {comment.author}</p>
+                  <p className="assignLeft">
+                    {new Date(comment.created_at).toUTCString()}
+                  </p>
                   {/* <p>votes:{comment.votes}</p> */}
-                  <p>{comment.body}</p>
+                  <p className="assignLeft justify">
+                    <span className="commentTag">Comment:</span> {comment.body}
+                  </p>
                   <Vote
                     votes={comment.votes}
                     id={comment.comment_id}
                     section="comments"
                   />
-                  <DeleteComment
-                    article_id={this.article_id}
-                    comment_id={comment.comment_id}
-                    removeComment={this.removeComment}
-                  />
+                  {author === comment.author && (
+                    <DeleteComment
+                      article_id={this.article_id}
+                      comment_id={comment.comment_id}
+                      removeComment={this.removeComment}
+                    />
+                  )}
                 </li>
               );
             })}

@@ -7,15 +7,13 @@ class PostComment extends Component {
     author: "jessjelly",
     body: ""
   };
-  //the below will be created to render a form which will sit on the articles page
+
   render() {
     const { body } = this.state;
     return (
       <form className="postForm" onSubmit={this.handleSubmit}>
-        {/* <label className="commentInputBodyLabel" htmlFor="body">
-          comment
-        </label> */}
         <textarea
+          placeholder="Add comment here..."
           className="commentInputTextArea"
           type="text"
           id="body"
@@ -23,12 +21,13 @@ class PostComment extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <button text="submit">add new comment</button>
+        <button className="postCommentBtn" text="submit">
+          Post Comment
+        </button>
       </form>
     );
   }
 
-  //handle change this will update as you type in form
   handleChange = event => {
     const { id, value } = event.target;
     this.setState({
@@ -36,7 +35,6 @@ class PostComment extends Component {
     });
   };
 
-  //handle the submit this will submit the form and redirect to the message posted
   handleSubmit = event => {
     event.preventDefault();
     const { article_id } = this.props;

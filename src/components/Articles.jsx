@@ -6,7 +6,8 @@ import "../css/Articles.css";
 class Articles extends Component {
   state = {
     articles: [],
-    sort_by: ""
+    sort_by: "",
+    order: "desc"
   };
 
   render() {
@@ -53,6 +54,7 @@ class Articles extends Component {
   fetchArticles = () => {
     const { topic } = this.props;
     const { sort_by } = this.state;
+
     api.getArticles(topic, sort_by).then(articles => {
       this.setState({ articles });
     });
@@ -62,7 +64,6 @@ class Articles extends Component {
     event.preventDefault();
     const sort_by = event.target.value;
     this.setState({ sort_by });
-    //bringing in from the app.js
   };
 }
 

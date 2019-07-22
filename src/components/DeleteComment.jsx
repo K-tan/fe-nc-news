@@ -9,11 +9,13 @@ class DeleteComment extends Component {
 
   render() {
     return (
-      <div>
-        <button text="submit" onClick={this.handleDelete}>
-          delete
-        </button>
-      </div>
+      <button
+        text="submit"
+        className="deleteButton"
+        onClick={this.handleDelete}
+      >
+        delete
+      </button>
     );
   }
 
