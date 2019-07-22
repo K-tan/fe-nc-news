@@ -1,0 +1,15 @@
+.voteup {
+  height: 200px;
+  width: 200px;
+}
+
+.voting {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.voteBtn {
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+}

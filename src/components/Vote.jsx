@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
 import "../css/Vote.css";
+import voteUp from "../img/voteup.svg";
+import voteDown from "../img/votedown.svg";
 
 class Vote extends Component {
   //created a vote class which has been sent through to the articleCard
@@ -13,14 +15,25 @@ class Vote extends Component {
     const { voteChange } = this.state;
     const { votes } = this.props;
     return (
-      <div>
-        <button onClick={() => this.vote(1)} disabled={voteChange === 1}>
-          +
+      <div className="voting">
+        <button
+          className="voteBtn"
+          onClick={() => this.vote(1)}
+          disabled={voteChange === 1}
+        >
+          <img width="25" height="25" src={voteUp} />
         </button>
-        <p>votes:{votes + voteChange}</p>
-        <button onClick={() => this.vote(-1)} disabled={voteChange === -1}>
-          -
+        <p>votes: {votes + voteChange}</p>
+        <button
+          className="voteBtn"
+          onClick={() => this.vote(-1)}
+          disabled={voteChange === -1}
+        >
+          <img width="25" height="25" src={voteDown} />
         </button>
+        {/* <button onClick={() => this.vote(-1)} disabled={voteChange === -1}>
+          <img src={voteDown} />
+        </button> */}
       </div>
     );
   }

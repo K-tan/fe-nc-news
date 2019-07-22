@@ -11,15 +11,19 @@ class PostComment extends Component {
   render() {
     const { body } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="body">comment</label>
-        <input
+      <form className="postForm" onSubmit={this.handleSubmit}>
+        {/* <label className="commentInputBodyLabel" htmlFor="body">
+          comment
+        </label> */}
+        <textarea
+          className="commentInputTextArea"
           type="text"
           id="body"
           value={body}
           onChange={this.handleChange}
         />
-        <button text="submit">post</button>
+        <br />
+        <button text="submit">add new comment</button>
       </form>
     );
   }

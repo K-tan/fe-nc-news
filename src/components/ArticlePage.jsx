@@ -16,31 +16,35 @@ class ArticlePage extends Component {
 
     return (
       <div className="main">
-        <h2>{article.title}</h2>
-        <p>{article.body}</p>
-        <p>votes:{article.votes}</p>
-        <p>{article.author}</p>
-        <p>{new Date(article.created_at).toUTCString()}</p>
-        <p>comments:{article.comment_count}</p>
+        <div className="singleArticle">
+          <h2 className="articlePageHeader">{article.title}</h2>
+          <p className="articlePageBody">{article.body}</p>
+          <p>votes:{article.votes}</p>
+          <p className="articlePageAuthor">{article.author}</p>
+          <p className="articlePageDate">
+            {new Date(article.created_at).toUTCString()}
+          </p>
+          <p className="articlePageCC">comments:{article.comment_count}</p>
+        </div>
         <PostComment
           updateComments={this.updateComments}
           article_id={article.article_id}
         />
-        <div>
+        <div className="commentsContainer">
           <h1>Comments</h1>
           <ul className="commentsList">
             {comments.map(comment => {
               return (
-                <li key={comment.comment_id}>
+                <li className="individualComment" key={comment.comment_id}>
+                  <p>{comment.author}</p>
+                  <p>{new Date(comment.created_at).toUTCString()}</p>
+                  {/* <p>votes:{comment.votes}</p> */}
+                  <p>{comment.body}</p>
                   <Vote
                     votes={comment.votes}
                     id={comment.comment_id}
                     section="comments"
                   />
-                  <p>{comment.author}</p>
-                  <p>{new Date(comment.created_at).toUTCString()}</p>
-                  {/* <p>votes:{comment.votes}</p> */}
-                  <p>{comment.body}</p>
                   <DeleteComment
                     article_id={this.article_id}
                     comment_id={comment.comment_id}
@@ -69,7 +73,7 @@ class ArticlePage extends Component {
       return {
         comments: [
           ...this.state.comments.filter(comment => {
-            if (comment.comment_id !== comment_id) return comment;
+            return comment.comment_id !== comment_id; //filter returns if true ro false
           })
         ]
       };

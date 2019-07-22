@@ -1,0 +1,10 @@
+ul.commentsList {
+  list-style: none;
+  padding: 0;
+}
+
+li.individualComment {
+  background-color: #ededed;
+  border: 0.5px solid black;
+  margin: 2.5%;
+}

@@ -1,0 +1,11 @@
+.postForm {
+  display: grid;
+  justify-items: center;
+}
+
+.commentInputTextArea {
+  margin-top: 2.5%;
+  width: 300px;
+  height: 100px;
+  background-color: #ededed;
+}

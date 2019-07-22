@@ -23,17 +23,19 @@ class Articles extends Component {
             onChange={this.handleChange}
             value={this.state.value}
           >
-            <option>SortBy</option>
+            <option>Sort By</option>
             <option value="created_at">Date</option>
             <option value="comment_count">Comments</option>
             <option value="votes">Votes</option>
           </select>
         </form>
-        <ul className="articles">
-          {articles.map(article => {
-            return <ArticleCard key={article.article_id} article={article} />;
-          })}
-        </ul>
+        <div className="articles_scroll">
+          <ul className="articles">
+            {articles.map(article => {
+              return <ArticleCard key={article.article_id} article={article} />;
+            })}
+          </ul>
+        </div>
       </div>
     );
   }
